@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AspireDashboardBI.ApiService/AspireDashboardBI.ApiService.csproj" />
+  <Project Path="AspireDashboardBI.AppHost/AspireDashboardBI.AppHost.csproj" />
+  <Project Path="AspireDashboardBI.ServiceDefaults/AspireDashboardBI.ServiceDefaults.csproj" />
+  <Project Path="AspireDashboardBI.Web/AspireDashboardBI.Web.csproj" />
+</Solution>

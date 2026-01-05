@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard RequestParameters="false">
+  <Title Text="Sample Dashboard" />
+  <DataSources>
+    <JsonDataSource Name="JSON Data Source (URL)" RootElement="Customers" ComponentName="jsonDataSource1">
+      <Source SourceType="DevExpress.DataAccess.Json.UriJsonSource" Uri="https://raw.githubusercontent.com/DevExpress-Examples/DataSources/master/JSON/customers.json" />
+    </JsonDataSource>
+    <EFDataSource Name="EF Data Source" Source="AspireDashboardBI.Web.AppDbContext, AspireDashboardBI.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ComponentName="eFDataSource1" />
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Companies" DataSource="jsonDataSource1">
+      <DataItems>
+        <Dimension DataMember="CompanyName" DefaultId="DataItem0" />
+        <Dimension DataMember="City" DefaultId="DataItem1" />
+        <Dimension DataMember="Address" DefaultId="DataItem2" />
+        <Dimension DataMember="Phone" DefaultId="DataItem3" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem3" />
+        </GridDimensionColumn>
+      </GridColumns>
+      <GridOptions />
+      <ColumnFilterOptions />
+    </Grid>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="Countries" DataSource="jsonDataSource1">
+      <DataItems>
+        <Dimension DataMember="Country" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Grid ComponentName="gridDashboardItem2" Name="Grid 1" DataSource="eFDataSource1" DataMember="Users">
+      <GridOptions />
+      <ColumnFilterOptions />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="0.41282735897290235" />
+      <LayoutGroup Orientation="Vertical" Weight="1.5871726410270974">
+        <LayoutItem DashboardItem="gridDashboardItem2" Weight="1.5871726410270974" />
+        <LayoutItem DashboardItem="gridDashboardItem1" Weight="1.5871726410270974" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

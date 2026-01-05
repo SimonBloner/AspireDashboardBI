@@ -1,0 +1,52 @@
+﻿@page "/weather"
+@attribute [StreamRendering(true)]
+@attribute [OutputCache(Duration = 5)]
+
+@using Microsoft.EntityFrameworkCore
+@using AspireDashboardBI.Web
+@inject AspireDashboardBI.Web.AppDbContext Db
+
+<PageTitle>Orders</PageTitle>
+
+<h1>Orders</h1>
+
+<p>This page lists all orders from the AppDbContext.</p>
+
+@if (orders == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!orders.Any())
+{
+    <p><em>No orders found.</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Customer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in orders)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.CustomerName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Order>? orders;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load all orders from the AppDbContext
+        orders = await Db.Customers.AsNoTracking().ToListAsync();
+    }
+}

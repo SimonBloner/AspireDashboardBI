@@ -1,0 +1,9 @@
+/.vs
+/AspireDashboardBI.Web/bin
+/AspireDashboardBI.Web/obj
+/AspireDashboardBI.AppHost/obj/Debug
+/AspireDashboardBI.AppHost/bin
+/AspireDashboardBI.ApiService/bin/Debug
+/AspireDashboardBI.ApiService/obj/Debug
+/AspireDashboardBI.ServiceDefaults/obj
+/AspireDashboardBI.ServiceDefaults/bin
